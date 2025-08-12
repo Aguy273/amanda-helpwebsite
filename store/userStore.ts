@@ -19,8 +19,8 @@ interface UserState {
   addUser: (user: Omit<User, "id">) => void
   updateUser: (id: string, data: Partial<User>) => void
   deleteUser: (id: string) => void
-  addReport: (report: Omit<Report, "id" | "createdAt">) => void
-  updateReport: (id: string, data: Partial<Report>) => void
+  addReport: (report: Omit<Report, "id" | "createdAt" | "status"> & { status?: Report["status"] }) => void
+  updateReport: (id: string, data: Partial<Omit<Report, "id" | "createdAt">>) => void
   getReportById: (id: string) => Report | undefined
   getAllReports: () => Report[]
   addChatMessage: (message: Omit<ChatMessage, "id" | "timestamp">) => void
